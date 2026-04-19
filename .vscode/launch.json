@@ -1,0 +1,57 @@
+{
+	// IntelliSense を使用して利用可能な属性を学べます。
+	// 既存の属性の説明をホバーして表示します。
+	// 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			// gh-sync:keep-start
+			"name": "Debug executable 'brust'",
+			// gh-sync:keep-end
+			"cargo": {
+				"args": [
+					"build",
+					// gh-sync:keep-start
+					"--bin=brust",
+					"--package=brust"
+					// gh-sync:keep-end
+				],
+				"filter": {
+					// gh-sync:keep-start
+					"name": "brust",
+					// gh-sync:keep-end
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			// gh-sync:keep-start
+			"name": "Debug unit tests in executable 'brust'",
+			// gh-sync:keep-end
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					// gh-sync:keep-start
+					"--bin=brust",
+					"--package=brust"
+					// gh-sync:keep-end
+				],
+				"filter": {
+					// gh-sync:keep-start
+					"name": "brust",
+					// gh-sync:keep-end
+					"kind": "bin"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}
