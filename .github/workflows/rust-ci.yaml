@@ -80,7 +80,7 @@ jobs:
       - name: Cache system packages
         if: needs.setup.outputs.apt_packages != ''
         id: apt-cache
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/apt-cache
           key: apt-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.github/workflows/rust-ci.yaml') }}
@@ -108,7 +108,7 @@ jobs:
         run: sudo dpkg -i ~/apt-cache/*.deb
 
       - name: Cache mise tools
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/.local/share/mise
           key: mise-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise.toml') }}
@@ -116,7 +116,7 @@ jobs:
             mise-v1-${{ runner.os }}-${{ runner.arch }}-
 
       - name: Cache dprint plugins
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/.cache/dprint
           key: dprint-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('dprint.jsonc') }}
@@ -126,6 +126,8 @@ jobs:
       - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
         with:
           cache: false
+          # renovate: datasource=github-releases packageName=jdx/mise versioning=calver:YYYY.M.D automerge=true
+          version: 2026.4.18
 
       - name: Check formatting
         run: |
@@ -156,7 +158,7 @@ jobs:
       - name: Cache system packages
         if: matrix.os == 'ubuntu-latest' && matrix.apt_packages
         id: apt-cache
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/apt-cache
           key: apt-v2-${{ runner.os }}-${{ runner.arch }}-${{ matrix.target }}-${{ hashFiles('.github/workflows/rust-ci.yaml') }}
@@ -213,7 +215,7 @@ jobs:
     timeout-minutes: ${{ fromJSON(needs.setup.outputs.timeout_minutes) }}
     permissions:
       actions: read #         For octocov to retrieve previous reports from artifacts
-      contents: write #       For octocov to push badges to repository
+      contents: write #       For pushing coverage badges to the badges branch
       pull-requests: write #  For octocov to comment on pull requests
 
     steps:
@@ -230,7 +232,7 @@ jobs:
       - name: Cache system packages
         if: needs.setup.outputs.apt_packages != ''
         id: apt-cache
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/apt-cache
           key: apt-v2-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.github/workflows/rust-ci.yaml') }}
@@ -258,7 +260,7 @@ jobs:
         run: sudo dpkg -i ~/apt-cache/*.deb
 
       - name: Cache mise tools
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: ~/.local/share/mise
           key: mise-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mise.toml') }}
@@ -268,6 +270,8 @@ jobs:
       - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
         with:
           cache: false
+          # renovate: datasource=github-releases packageName=jdx/mise versioning=calver:YYYY.M.D automerge=true
+          version: 2026.4.18
 
       - name: Generate coverage report
         run: |
@@ -278,3 +282,54 @@ jobs:
         uses: k1LoW/octocov-action@73d561f65d59e66899ed5c87e4621a913b5d5c20 # v1.5.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push coverage badges
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          [[ -f coverage.svg && -f time.svg ]] || { echo "Badge files not found, skipping"; exit 0; }
+
+          # Compute local git blob SHAs to compare before uploading
+          coverage_local=$(git hash-object coverage.svg)
+          time_local=$(git hash-object time.svg)
+
+          # Get current badges branch state
+          head_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/refs/heads/badges" --jq '.object.sha')
+          tree_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/commits/${head_sha}" --jq '.tree.sha')
+
+          # Skip if content unchanged (compare blob SHAs before uploading)
+          coverage_existing=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/${tree_sha}" \
+            --jq '.tree[] | select(.path == "coverage.svg") | .sha')
+          time_existing=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/${tree_sha}" \
+            --jq '.tree[] | select(.path == "time.svg") | .sha')
+          if [[ "$coverage_local" == "$coverage_existing" && "$time_local" == "$time_existing" ]]; then
+            echo "No badge changes"
+            exit 0
+          fi
+
+          # Upload blobs via stdin (avoids shell argument size limits)
+          coverage_blob=$(base64 -w0 coverage.svg \
+            | jq -Rsc '{"encoding":"base64","content":.}' \
+            | gh api "repos/${GITHUB_REPOSITORY}/git/blobs" --method POST --input - --jq '.sha')
+          time_blob=$(base64 -w0 time.svg \
+            | jq -Rsc '{"encoding":"base64","content":.}' \
+            | gh api "repos/${GITHUB_REPOSITORY}/git/blobs" --method POST --input - --jq '.sha')
+
+          # Use --input - to pass complete JSON body, avoiding --field parsing issues
+          new_tree=$(printf \
+            '{"base_tree":"%s","tree":[{"path":"coverage.svg","mode":"100644","type":"blob","sha":"%s"},{"path":"time.svg","mode":"100644","type":"blob","sha":"%s"}]}' \
+            "$tree_sha" "$coverage_blob" "$time_blob" \
+            | gh api "repos/${GITHUB_REPOSITORY}/git/trees" --method POST --input - --jq '.sha')
+
+          new_commit=$(printf \
+            '{"message":"Update coverage badges [skip ci]","tree":"%s","parents":["%s"]}' \
+            "$new_tree" "$head_sha" \
+            | gh api "repos/${GITHUB_REPOSITORY}/git/commits" --method POST --input - --jq '.sha')
+
+          gh api "repos/${GITHUB_REPOSITORY}/git/refs/heads/badges" \
+            --method PATCH --field sha="${new_commit}"
+          echo "Coverage badges updated"
