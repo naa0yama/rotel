@@ -108,6 +108,10 @@ fn build_resource() -> opentelemetry_sdk::Resource {
                 env!("CARGO_PKG_VERSION"),
             ),
             opentelemetry::KeyValue::new(
+                opentelemetry_semantic_conventions::attribute::SERVICE_INSTANCE_ID,
+                gethostname::gethostname().to_string_lossy().into_owned(),
+            ),
+            opentelemetry::KeyValue::new(
                 opentelemetry_semantic_conventions::attribute::VCS_REF_HEAD_REVISION,
                 env!("GIT_HASH"),
             ),

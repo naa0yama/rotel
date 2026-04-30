@@ -62,6 +62,16 @@ mise run ast-grep         # ast-grep カスタムルールチェック
 mise run pre-commit       # clean:sweep + fmt:check + clippy:strict + ast-grep + lint:gh
 ```
 
+### Dev Container / Traefik (WSL2)
+
+```bash
+mise run traefik:setup    # Traefik を systemd ユーザーサービスとして初期設定 (初回のみ)
+mise run dev:up           # 現在のワークツリー用 devcontainer を起動
+mise run dev:down         # 現在のワークツリーの devcontainer を停止・削除
+mise run dev:exec         # 起動中の devcontainer にアタッチ
+mise run dev:status       # 起動中の devcontainer と Traefik FQDN 一覧を表示
+```
+
 ## プロジェクト構造
 
 ```
@@ -71,14 +81,14 @@ mise run pre-commit       # clean:sweep + fmt:check + clippy:strict + ast-grep +
 ├── .devcontainer/              # Dev Container設定
 │   ├── devcontainer.json       # Dev Container設定ファイル
 │   ├── initializeCommand.sh    # 初期化コマンド
-│   └── postStartCommand.sh     # 起動後コマンド
+│   ├── postStartCommand.sh     # 起動後コマンド
+│   └── traefik.sh              # Traefik ルーティング管理スクリプト (WSL2)
 ├── .githooks/                  # Git hooks (mise run 連携)
 │   ├── commit-msg              # Conventional Commits 検証
 │   ├── pre-commit              # コミット前チェック
 │   └── pre-push                # プッシュ前チェック
 ├── .github/                    # GitHub Actions & 設定
 │   ├── actions/                # カスタムアクション
-│   ├── gh-sync/                # gh-sync マニフェスト (テンプレートリポジトリからのファイル同期設定)
 │   ├── workflows/              # CI/CD ワークフロー
 │   ├── labeler.yml
 │   ├── project-config.json         # CI/リリース設定 (ビルドターゲット・タイムアウト・apt パッケージ等)
