@@ -1,11 +1,17 @@
 # Changelog
 
 ## [v0.1.6](https://github.com/naa0yama/rotel/commits/v0.1.6) - 2026-05-02
+
 ### Documentation 🗒️
+
 - chore: backport infrastructure and tooling from boilerplate-rust by @naa0yama in https://github.com/naa0yama/rotel/pull/2
+
 ### Dependency Updates 📦
+
 - Update Rust crate rustls to v0.23.39 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/10
+
 ### Development Environment 🔧
+
 - Update dependency usage to v3.2.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/6
 - Update dependency ghalint to v1.5.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/4
 - Update dependency github:naa0yama/gh-sync to v0.3.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/5
