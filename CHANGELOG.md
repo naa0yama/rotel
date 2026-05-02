@@ -1,5 +1,27 @@
 # Changelog
 
+## [v0.1.6](https://github.com/naa0yama/rotel/commits/v0.1.6) - 2026-05-02
+
+### Documentation 🗒️
+
+- chore: backport infrastructure and tooling from boilerplate-rust by @naa0yama in https://github.com/naa0yama/rotel/pull/2
+
+### Dependency Updates 📦
+
+- Update Rust crate rustls to v0.23.39 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/10
+
+### Development Environment 🔧
+
+- Update dependency usage to v3.2.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/6
+- Update dependency ghalint to v1.5.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/4
+- Update dependency github:naa0yama/gh-sync to v0.3.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/5
+- Update dependency jdx/mise to v2026.4.19 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/12
+- Update mozilla-actions/sccache-action action to v0.0.10 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/11
+- Update taiki-e/install-action action to v2.75.20 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/13
+- Update dependency jdx/mise to v2026.4.20 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/14
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/15
+- Update dependency jdx/mise to v2026.4.22 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/16
+
 ## [v0.1.6](https://github.com/naa0yama/boilerplate-rust/compare/v0.1.5...v0.1.6) - 2026-04-19
 
 ### Development Environment 🔧
