@@ -293,31 +293,27 @@ jobs:
 
           [[ -f coverage.svg && -f time.svg ]] || { echo "Badge files not found, skipping"; exit 0; }
 
-          # Compute local git blob SHAs to compare before uploading
-          coverage_local=$(git hash-object coverage.svg)
-          time_local=$(git hash-object time.svg)
-
-          # Get current badges branch state
-          head_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/refs/heads/badges" --jq '.object.sha')
-          tree_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/commits/${head_sha}" --jq '.tree.sha')
-
-          # Skip if content unchanged (compare blob SHAs before uploading)
-          coverage_existing=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/${tree_sha}" \
-            --jq '.tree[] | select(.path == "coverage.svg") | .sha')
-          time_existing=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/${tree_sha}" \
-            --jq '.tree[] | select(.path == "time.svg") | .sha')
-          if [[ "$coverage_local" == "$coverage_existing" && "$time_local" == "$time_existing" ]]; then
-            echo "No badge changes"
-            exit 0
-          fi
-
-          # Upload blobs via stdin (avoids shell argument size limits)
+          # Create blobs via stdin (avoids shell argument size limits)
           coverage_blob=$(base64 -w0 coverage.svg \
             | jq -Rsc '{"encoding":"base64","content":.}' \
             | gh api "repos/${GITHUB_REPOSITORY}/git/blobs" --method POST --input - --jq '.sha')
           time_blob=$(base64 -w0 time.svg \
             | jq -Rsc '{"encoding":"base64","content":.}' \
             | gh api "repos/${GITHUB_REPOSITORY}/git/blobs" --method POST --input - --jq '.sha')
+
+          # Get current badges branch state
+          head_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/refs/heads/badges" --jq '.object.sha')
+          tree_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/commits/${head_sha}" --jq '.tree.sha')
+
+          # Skip if content unchanged (compare blob SHAs)
+          coverage_existing=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/${tree_sha}" \
+            --jq '.tree[] | select(.path == "coverage.svg") | .sha')
+          time_existing=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/${tree_sha}" \
+            --jq '.tree[] | select(.path == "time.svg") | .sha')
+          if [[ "$coverage_blob" == "$coverage_existing" && "$time_blob" == "$time_existing" ]]; then
+            echo "No badge changes"
+            exit 0
+          fi
 
           # Use --input - to pass complete JSON body, avoiding --field parsing issues
           new_tree=$(printf \
