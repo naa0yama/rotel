@@ -81,10 +81,10 @@ mise run dev:status       # 起動中の devcontainer と Traefik FQDN 一覧を
 ├── .devcontainer/              # Dev Container設定
 │   ├── devcontainer.json       # Dev Container設定ファイル
 │   ├── initializeCommand.sh    # 初期化コマンド
-│   ├── postStartCommand.sh     # 起動後コマンド
-│   └── traefik.sh              # Traefik ルーティング管理スクリプト (WSL2)
+│   └── postStartCommand.sh     # 起動後コマンド
 ├── .githooks/                  # Git hooks (mise run 連携)
 │   ├── commit-msg              # Conventional Commits 検証
+│   ├── post-checkout           # ワークツリー切り替え後処理
 │   ├── pre-commit              # コミット前チェック
 │   └── pre-push                # プッシュ前チェック
 ├── .github/                    # GitHub Actions & 設定
