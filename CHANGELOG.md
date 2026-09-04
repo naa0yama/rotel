@@ -3,9 +3,12 @@
 ## [v0.1.6](https://github.com/naa0yama/rotel/commits/v0.1.6) - 2026-09-04
 
 ### Documentation 🗒️
+
 - chore: backport infrastructure and tooling from boilerplate-rust by @naa0yama in https://github.com/naa0yama/rotel/pull/2
 - chore: backport boilerplate infrastructure updates by @naa0yama in https://github.com/naa0yama/rotel/pull/27
+
 ### Dependency Updates 📦
+
 - Update Rust crate rustls to v0.23.39 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/10
 - Lock file maintenance by @renovate[bot] in https://github.com/naa0yama/rotel/pull/18
 - Lock file maintenance by @renovate[bot] in https://github.com/naa0yama/rotel/pull/32
@@ -21,7 +24,9 @@
 - Update Rust crate clap to v4.6.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/136
 - Update Rust crate rustls to v0.23.43 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/137
 - Update Rust crate clap to v4.6.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/143
+
 ### Development Environment 🔧
+
 - Update dependency usage to v3.2.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/6
 - Update dependency ghalint to v1.5.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/4
 - Update dependency github:naa0yama/gh-sync to v0.3.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/5
@@ -142,7 +147,9 @@
 - Update dependency rui314/mold to v2.42.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/150
 - Update dependency zizmor to v1.29.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/151
 - Update docker/dockerfile Docker tag to v1.26.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/152
+
 ### Other Changes
+
 - build: migrate test runner to cargo-nextest by @naa0yama in https://github.com/naa0yama/rotel/pull/41
 - Update Rust crate anyhow to v1.0.103 [SECURITY] by @renovate[bot] in https://github.com/naa0yama/rotel/pull/57
 
