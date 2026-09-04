@@ -1,5 +1,151 @@
 # Changelog
 
+## [v0.1.6](https://github.com/naa0yama/rotel/commits/v0.1.6) - 2026-09-04
+
+### Documentation 🗒️
+- chore: backport infrastructure and tooling from boilerplate-rust by @naa0yama in https://github.com/naa0yama/rotel/pull/2
+- chore: backport boilerplate infrastructure updates by @naa0yama in https://github.com/naa0yama/rotel/pull/27
+### Dependency Updates 📦
+- Update Rust crate rustls to v0.23.39 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/10
+- Lock file maintenance by @renovate[bot] in https://github.com/naa0yama/rotel/pull/18
+- Lock file maintenance by @renovate[bot] in https://github.com/naa0yama/rotel/pull/32
+- Lock file maintenance by @renovate[bot] in https://github.com/naa0yama/rotel/pull/55
+- Update Rust crate rand to v0.10.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/63
+- Update Rust crate reqwest to v0.13.4 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/64
+- Update Rust crate sysinfo to 0.39 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/42
+- Update Rust crate rustls to v0.23.41 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/65
+- Update Rust crate rustls to v0.23.42 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/91
+- Update Rust crate clap to v4.6.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/101
+- Update Rust crate anyhow to v1.0.104 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/105
+- Update Rust crate serde to v1.0.229 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/106
+- Update Rust crate clap to v4.6.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/136
+- Update Rust crate rustls to v0.23.43 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/137
+- Update Rust crate clap to v4.6.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/143
+### Development Environment 🔧
+- Update dependency usage to v3.2.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/6
+- Update dependency ghalint to v1.5.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/4
+- Update dependency github:naa0yama/gh-sync to v0.3.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/5
+- Update dependency jdx/mise to v2026.4.19 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/12
+- Update mozilla-actions/sccache-action action to v0.0.10 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/11
+- Update taiki-e/install-action action to v2.75.20 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/13
+- Update dependency jdx/mise to v2026.4.20 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/14
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/15
+- Update dependency jdx/mise to v2026.4.22 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/16
+- Update dependency jdx/mise to v2026.4.23 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/19
+- Update taiki-e/install-action action to v2.75.23 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/21
+- Update dependency jdx/mise to v2026.4.24 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/20
+- Update taiki-e/install-action action to v2.75.24 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/25
+- Update dependency jdx/mise to v2026.4.25 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/24
+- Update taiki-e/install-action action to v2.75.25 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/26
+- Update taiki-e/install-action action to v2.75.26 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/28
+- chore: backport boilerplate infrastructure updates by @naa0yama in https://github.com/naa0yama/rotel/pull/29
+- Update taiki-e/install-action action to v2.75.29 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/30
+- Update taiki-e/install-action action to v2.75.30 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/31
+- Update dependency jdx/mise to v2026.5.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/33
+- Update taiki-e/install-action action to v2.76.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/35
+- Update taiki-e/install-action action to v2.77.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/36
+- Update dependency openobserve/openobserve to v0.80.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/37
+- Update taiki-e/install-action action to v2.77.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/38
+- Update dependency jdx/mise to v2026.5.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/39
+- Update actions/labeler action to v6.1.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/40
+- Update dependency jdx/mise to v2026.5.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/43
+- Update dependency openobserve/openobserve to v0.80.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/44
+- Update github/codeql-action action to v4.35.4 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/45
+- Update dependency jdx/mise to v2026.5.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/46
+- Update taiki-e/install-action action to v2.77.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/47
+- Update actions-rust-lang/setup-rust-toolchain action to v1.16.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/48
+- chore: backport ast-grep testdata-policy rules and dependency updates by @naa0yama in https://github.com/naa0yama/rotel/pull/50
+- Update github/codeql-action action to v4.35.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/52
+- Update dependency jdx/mise to v2026.5.9 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/51
+- Update dependency aqua:cli/cli to v2.96.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/23
+- Update dependency zizmor to v1.26.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/53
+- Update dependency usage to v3.5.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/34
+- Update dependency aqua:ast-grep/ast-grep to v0.42.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/58
+- Update dependency aqua:EmbarkStudios/cargo-deny to v0.19.9 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/59
+- Update dependency github:naa0yama/graft to v0.5.9 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/60
+- Update dependency github:rust-secure-code/cargo-auditable to v0.7.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/61
+- Update docker/dockerfile Docker tag to v1.25.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/54
+- Update dependency jdx/mise to v2026.5.18 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/62
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/66
+- Update dependency aqua:ast-grep/ast-grep to v0.44.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/67
+- Update dependency dprint to v0.55.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/68
+- Update dependency mozilla/sccache to v0.16.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/70
+- Update dependency openobserve/openobserve to v0.91.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/71
+- Update dependency jdx/mise to v2026.7.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/69
+- Update taiki-e/install-action action to v2.82.9 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/74
+- Update dependency usage to v3.5.4 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/75
+- Update dependency jdx/mise to v2026.7.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/76
+- Update taiki-e/install-action action to v2.82.10 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/77
+- Update dependency jdx/mise to v2026.7.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/78
+- Update github/codeql-action action to v4.37.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/79
+- Update dependency jdx/mise to v2026.7.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/80
+- Update taiki-e/install-action action to v2.82.11 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/81
+- Update actions/labeler action to v6.2.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/82
+- Update dependency jdx/mise to v2026.7.4 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/83
+- Update taiki-e/install-action action to v2.83.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/84
+- Update dependency jdx/mise to v2026.7.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/85
+- Update dependency aqua:EmbarkStudios/cargo-deny to v0.20.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/86
+- Update taiki-e/install-action action to v2.83.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/87
+- Update dependency github:naa0yama/graft to v0.5.10 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/88
+- Update dependency github:naa0yama/graft to v0.5.11 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/89
+- Update taiki-e/install-action action to v2.83.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/90
+- Update dependency zizmor to v1.27.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/92
+- Update dependency jdx/mise to v2026.7.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/93
+- Update dependency jdx/mise to v2026.7.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/94
+- Update dependency dprint to v0.55.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/95
+- Update dependency usage to v3.5.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/96
+- Update Songmu/tagpr action to v1.20.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/97
+- Update zizmorcore/zizmor-action action to v0.6.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/98
+- Update dependency jdx/mise to v2026.7.7 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/99
+- Update dependency jdx/mise to v2026.7.7 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/100
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/102
+- Update dependency openobserve/openobserve to v0.91.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/103
+- Update taiki-e/install-action action to v2.83.4 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/104
+- Lock file maintenance by @renovate[bot] in https://github.com/naa0yama/rotel/pull/107
+- Update taiki-e/install-action action to v2.84.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/108
+- Update actions/checkout action to v6.1.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/109
+- Update dependency jdx/mise to v2026.7.11 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/110
+- Update dependency jdx/mise to v2026.7.11 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/111
+- Update dependency openobserve/openobserve to v0.91.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/112
+- Update dependency usage to v3.5.6 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/113
+- Update github/codeql-action action to v4.37.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/114
+- Update dependency zizmor to v1.28.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/115
+- Update github/codeql-action action to v4.37.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/116
+- Update taiki-e/install-action action to v2.84.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/117
+- Update dependency jdx/mise to v2026.7.12 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/118
+- Update dependency jdx/mise to v2026.7.12 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/119
+- Update dependency cargo:cargo-nextest to v0.9.140 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/120
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/121
+- Update dependency aqua:ast-grep/ast-grep to v0.45.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/122
+- Update zizmorcore/zizmor-action action to v0.6.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/123
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/124
+- Update dependency jdx/mise to v2026.7.13 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/125
+- Update dependency jdx/mise to v2026.7.13 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/126
+- Update jdx/mise-action action to v4.2.3 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/127
+- Update taiki-e/install-action action to v2.85.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/128
+- Update dependency usage to v3.5.7 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/129
+- Update dependency usage to v3.6.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/130
+- Update dependency jdx/mise to v2026.7.18 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/132
+- Update dependency jdx/mise to v2026.7.18 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/133
+- Update dependency cargo:cargo-nextest to v0.9.143 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/134
+- Update dependency openobserve/openobserve to v0.91.5 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/135
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/138
+- Update dependency aqua:cli/cli to v2.97.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/139
+- Update All action update by @renovate[bot] in https://github.com/naa0yama/rotel/pull/141
+- Update dependency aqua:ast-grep/ast-grep to v0.45.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/142
+- Update dependency aqua:cli/cli to v2.98.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/144
+- Update dependency aqua:taiki-e/cargo-llvm-cov to v0.9.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/145
+- Update dependency dprint to v0.56.1 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/146
+- Update dependency jdx/mise to v2026.8.14 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/147
+- Update dependency mozilla/sccache to v0.17.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/148
+- Update dependency openobserve/openobserve to v0.92.2 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/149
+- Update dependency rui314/mold to v2.42.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/150
+- Update dependency zizmor to v1.29.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/151
+- Update docker/dockerfile Docker tag to v1.26.0 by @renovate[bot] in https://github.com/naa0yama/rotel/pull/152
+### Other Changes
+- build: migrate test runner to cargo-nextest by @naa0yama in https://github.com/naa0yama/rotel/pull/41
+- Update Rust crate anyhow to v1.0.103 [SECURITY] by @renovate[bot] in https://github.com/naa0yama/rotel/pull/57
+
 ## [v0.1.6](https://github.com/naa0yama/boilerplate-rust/compare/v0.1.5...v0.1.6) - 2026-04-19
 
 ### Development Environment 🔧
